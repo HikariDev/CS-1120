@@ -1,6 +1,6 @@
 # Name: Andrew Kroll
 # Date: 2020-09-03
-# Course-Section/LA#: CS1120-951 LA1
+# Course-Section/LE#: CS1120-951 LE1
 # Description: Converts number to day of week
 
 
