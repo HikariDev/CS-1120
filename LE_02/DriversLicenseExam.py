@@ -1,18 +1,10 @@
 # Name: Andrew Kroll
 # Date: 2020-09-10
-# Course-Section/LE#: CS1120-951 LE1
-# Description: Calculates rainfall totals, and averages. Finds highest and
-#              lowest rainfall months.
+# Course-Section/LE#: CS1120-951 LE2
+# Description: Grades drivers license exams from the provided
+#              student_answers.txt file.
 
-
-def asterisk():
-    for i in range(5, 0, -1):
-        for a in range(i):
-            print("* ", end='')
-        print()
-
-
-def drivers_license_exam():
+def main():
     answers = ["A", "C", "A", "A", "D", "B", "C", "A", "C", "B",
                "A", "D", "C", "A", "D", "C", "B", "B", "D", "A"]
     student_answers = []
@@ -39,4 +31,4 @@ def drivers_license_exam():
             print("  Incorrect questions: {}".format(incorrect))
 
 
-drivers_license_exam()
+main()
