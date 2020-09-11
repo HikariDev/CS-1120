@@ -1,0 +1,29 @@
+## Asterisks Pseudocode ##
+
+for each of 5 lines:
+    print number of asterisks equal to (number of lines - current line)
+    
+
+## Driver's License Exam Pseudocode ##
+
+answers = [a, c, a, a, d, b, c, a, c, b, a, d, c, a, d, c, b, b, d, a]
+student_answers = []
+
+open student answers file:
+    for each student's answers in file:
+        add student's answers to student_answers
+
+for each student's answers in student_answers:
+    score = 0
+    incorrect = []
+    for each question in student's answers:
+        if question answer is correct:
+            score += 1
+        else:
+            add question number to incorrect
+    if score >= 15:
+        print that the student passed with score correct, 20-score incorrect.
+    else:
+        print that the student failed with score correct, 20-score incorrect.
+    if student had wrong answers:
+        print a list of incorrectly answered question numbers
