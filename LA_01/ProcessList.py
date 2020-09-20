@@ -66,14 +66,8 @@ class ProcessList:
     def get_rows(self) -> int:  # Gets the set number of rows
         return self.rows
 
-    def set_rows(self, rows: int):  # Updates the number of rows
-        self.rows = rows
-
     def get_cols(self) -> int:  # Gets the set number of cols
         return self.cols
-
-    def set_cols(self, cols: int):  # Updates the number of cols
-        self.cols = cols
 
     def get_random_number(self, row: int, col: int) -> int:
         # Gets the targeted cell value from random_numbers array

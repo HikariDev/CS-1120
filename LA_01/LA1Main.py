@@ -10,7 +10,20 @@ from LA_01 import ProcessList
 
 
 def main():
-    rows, cols = 0, 0  # Declare placeholder variables for row and col numbers
+    rows = get_rows()  # Get the number of rows from the user
+    cols = get_cols(rows)  # Get the number of columns from the user
+
+    process_list = ProcessList.ProcessList(rows, cols)  # Generate process_list
+    # object
+    process_list.randomly_fill_list()  # Fill the random numbers array with
+    # random numbers
+    process_list.compute_list_values()  # Compute values for computed values
+    # array
+    process_list.print_list()  # Display both the random and computed arrays
+
+
+def get_rows() -> int:
+    rows = 0
     while not 5 <= rows <= 20:  # Continue asking user for input until between
         # 5 and 20 (inclusive)
         try:
@@ -19,6 +32,11 @@ def main():
                 print("Invalid input.")
         except ValueError:  # Alert user if not an integer
             print("Input must be an integer.")
+    return rows
+
+
+def get_cols(rows: int) -> int:
+    cols = 0
     while not 5 <= cols <= 20 or cols == rows:  # Continue asking user for
         # input until between 5 and 20 (inclusive), not equal to rows
         try:
@@ -29,14 +47,7 @@ def main():
                 print("Invalid input.")
         except ValueError:  # Alert user if not an integer
             print("Input must be an integer.")
-
-    process_list = ProcessList.ProcessList(rows, cols)  # Generate process_list
-    # object
-    process_list.randomly_fill_list()  # Fill the random numbers array with
-    # random numbers
-    process_list.compute_list_values()  # Compute values for computed values
-    # array
-    process_list.print_list()  # Display both the random and computed arrays
+    return cols
 
 
 main()
