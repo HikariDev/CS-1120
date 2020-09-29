@@ -24,19 +24,19 @@ class ProcessList:
     def randomly_fill_list(self):  # Fills the random_numbers array with
         # randomly generated numbers between 0 and 15
         for row in range(self.get_rows()):  # Iterate through row values
-            for col in range(self.get_rows()):  # Iterate through col values
+            for col in range(self.get_cols()):  # Iterate through col values
                 self.set_random_number(row, col, random.randint(0, 15))
                 # Set the cell to a random number between 0 and 15 (inclusive)
 
     def compute_list_values(self):  # Fills the computed_numbers array with
         # the sum of all neighboring cells from random_numbers array
         for row in range(self.get_rows()):  # Iterate through row values
-            for col in range(self.get_rows()):  # Iterate through col values
+            for col in range(self.get_cols()):  # Iterate through col values
                 neighbor_sum = 0  # Used to temporarily hold the sum of all
                 # neighboring cells
                 for n_row in range(max(0, row-1), min(self.get_rows(), row+2)):
                     # Iterate through neighboring rows
-                    for n_col in range(max(0, col-1), min(self.get_rows(),
+                    for n_col in range(max(0, col-1), min(self.get_cols(),
                                                           col+2)):
                         # Iterate through neighboring cols
                         if n_row != row or n_col != col:
