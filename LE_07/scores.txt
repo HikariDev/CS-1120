@@ -1,0 +1,5 @@
+test,100
+data,200
+for,123
+this,10
+exercise,43

@@ -1,0 +1,52 @@
+# Name: Andrew Kroll
+# Date: 2020-10-16
+# Course-Section/LE#: CS1120-951 LE4
+# Description: Word List Writer: Write n words to file, n specified by user,
+#   words specified by user.
+# Word List Reader: Read words from file, find word count, longest word,
+#   average word length, and duplicate words, then display data.
+# High Score: Read high scores from a file. Display number of scores and
+#   highest score with the name of who had that score.
+
+word_list_writer:
+    count = ask user how many words to enter
+    open file 'words.txt':
+        for 0 -> count:
+            word = ask user to enter a word
+            write word to file
+    close file
+
+word_list_reader:
+    longest_word = ""
+    word_count = 0
+    length_sum = 0
+    words = {}
+    open file 'words.txt':
+        for word in file:
+            if word > longest_word:
+                set longest word to word
+            add 1 to word count
+            add length of word to length_sum
+            add 1 to words[word]
+    length_average = length_sum / word_count
+    print word_count
+    print longest_word
+    print length_average
+    for word in words:
+        if word was entered more than once:
+            print word and how many times it was entered
+
+high_score:
+    record_count = 0
+    highest_score_name = ""
+    highest_score = 0
+    open file 'scores.txt':
+        for entry in file:
+            name = field 0
+            score = field 1
+            add 1 to record_count
+            if score > highest score:
+                highest_score_name = name
+                highest_score = score
+    print record_count
+    print highest_score_name and highest_score
