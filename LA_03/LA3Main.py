@@ -25,11 +25,18 @@ def find_longest_path_length(data):
         for c in range(len(data[r])):
             if data[r][c] != 'A':
                 continue
-            longest = max(longest,
-                          find_max(find_path_length_recursive(data, [[False for xc in range(len(data[r]))] for xr in range(len(data))], r-1, c),
-                                   find_path_length_recursive(data, [[False for xc in range(len(data[r]))] for xr in range(len(data))], r+1, c),
-                                   find_path_length_recursive(data, [[False for xc in range(len(data[r]))] for xr in range(len(data))], r, c-1),
-                                   find_path_length_recursive(data, [[False for xc in range(len(data[r]))] for xr in range(len(data))], r, c+1)))
+            checked = [[False for xc in range(len(data[r]))] for xr in
+                       range(len(data))]
+            checked[r][c] = True
+            longest = max(longest, 1 +
+                          find_max(find_path_length_recursive(data, checked,
+                                                              r-1, c),
+                                   find_path_length_recursive(data, checked,
+                                                              r+1, c),
+                                   find_path_length_recursive(data, checked,
+                                                              r, c-1),
+                                   find_path_length_recursive(data, checked,
+                                                              r, c+1)))
     return longest
 
 
