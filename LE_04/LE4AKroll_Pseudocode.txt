@@ -1,0 +1,74 @@
+# Name: Andrew Kroll
+# Date: 2020-09-24
+# Course-Section/LE#: CS1120-951 LE4
+# Description: Employee, ProductionWorker, and ShiftManager data storage
+
+
+class Employee:
+    def __init__:
+        set employee_name = ""
+        set employee_number = 0
+    
+    def set_name(name):
+        update employee_name to name
+    
+    def get_name:
+        return employee_name
+        
+    def set_number(number):
+        update employee_number to number
+    
+    def get_number:
+        return employee_number
+
+class ProductionWorker(Employee):
+    def __init__:
+        call Employee __init__
+        set shift_number = 0
+        set hourly_pay = 0
+        set workday = 0
+    
+    def set_shift(shift):
+        update shift_number to shift
+    
+    def get_shift:
+        return shift_number
+    
+    def set_hourly_pay(pay):
+        update hourly_pay to pay
+    
+    def get_hourly_pay:
+        return hourly_pay
+    
+    def set_workday(workday):
+        update workday to workday
+    
+    def get_workday:
+        return workday
+
+def ShiftSupervisor(Employee):
+    def __init__:
+        call Employee __init__
+        set salary = 0
+        set yearly_bonus = 0
+    
+    def set_salary(salary):
+        update salary to salary
+    
+    def get_salary:
+        return salary
+    
+    def set_yearly_bonus(bonus):
+        update yearly_bonus to bonus
+    
+def main():
+    worker = instance of ProductionWorker
+    update worker name with input from user
+    update worker employee number with input from user
+    update worker hourly pay with input from user
+    update worker shift with input from user
+    update worker workday with input from user
+    
+    display information for the worker
+
+main()
