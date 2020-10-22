@@ -1,0 +1,53 @@
+# Name: Andrew Kroll
+# Date: 2020-10-22
+# Course-Section/LE#: CS1120-951 LE8
+# Description: Pseudocode
+
+
+def main():
+    read_numbers()
+    read_file()
+    is_int(input("Enter a number: "))
+
+
+def read_numbers():
+    try:
+        open numbers.txt file
+        total = 0
+        count = 0
+        for each line in file:
+            try:
+                convert line to integer
+                increase total by line amount
+                increase count by 1
+            catch ValueError:
+                tell user what went wrong
+        tell user the average value
+        close file
+    catch IOError:
+        tell user the file could not be found
+
+
+def read_file():
+    check arguments length
+        if no file argument passed:
+            tell user proper usage
+            return
+    try:
+        open argument as file:
+            for line in file:
+                print line:
+        close file
+    catch IOError:
+        tell user the file could not be found
+
+
+def is_int(arg):
+    try:
+        convert argument to int
+        tell user the argument is a number
+    catch ValueError:
+        tell user the argument is not a number
+
+
+main()

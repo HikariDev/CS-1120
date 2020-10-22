@@ -1,7 +1,10 @@
 # Name: Andrew Kroll
 # Date: 2020-10-22
 # Course-Section/LE#: CS1120-951 LE8
-# Description:
+# Description: read_numbers: Reads numbers from a file and calculates the
+#   average value. Checks for errors and alerts the user.
+# read_file: Reads the file specified by command line arguments.
+# is_int: Prints whether the value is a number or not using exceptions.
 
 import sys
 
