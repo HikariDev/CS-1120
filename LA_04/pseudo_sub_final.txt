@@ -1,0 +1,57 @@
+class UserInterface:
+    def __init__(self):
+        # initialize file, translator, and text variables
+
+    def run_program(self):
+        # update file variable with get_corpus_filename()
+        # update text variable with get_source_text()
+        # update translator variable with new instance of Translator using file and text variables as arguments
+        # do translation with translate()
+
+    def get_corpus_filename(self):
+        # prompt the user with options
+        # create selection variable
+        # get user selection and catch errors until valid
+        # return 'etf.csv' if selection is 1, otherwise return 'fte.csv'
+
+    def get_source_text(self):
+        # return message to be translated from user
+
+    def translate(self):
+        # read_corpus() in translator object
+        # translate() in translator object
+
+
+class Translator:
+    def __init__(self, file: str, source: str):
+        # initialize file variable from file argument, source variable from source argument, and an empty dictionary
+
+    def read_corpus(self):
+        # open file to read
+        # read lines from file and insert into dictionary
+
+    def translate(self):
+        # create out variable
+        # create capitalize_first variable with whether or not to capitalize the first letter
+        # create last_chars variable to hold trailing punctuation
+        # use __lookup(word) to rebuild message into the out variable
+        # apply capitalization to first letter if necessary
+        # apply trailing punctuation
+        # print translated message
+
+    def __lookup(self, word: str):
+        # convert word to lowercase and strip non-word characters
+        # if word is in dictionary, return value of word, otherwise return source word
+
+
+def greeting():
+    # display a greeting and a brief explanation of what the program does.
+
+
+def main():
+    # display greeting()
+    # create running flag variable as True
+    # continuously run program until user says to quit. Catch FileNotFoundErrors as appropriate
+
+
+main()

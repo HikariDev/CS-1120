@@ -2,7 +2,6 @@
 # Date: 2020-10-30
 # Course-Section/LA#: CS1120-951 LA4
 # Description: TODO: LATER
-from typing import Dict
 import re
 
 
@@ -29,17 +28,25 @@ class UserInterface:
     # the name of the corpus file. Uses try-except to enforce correct input.
     def get_corpus_filename(self):
         print("What would you like to translate?:")
-        print("<1> English to French")
-        print("<2> French to English")
-        selection = input("Choose an option: ")
-        while not (selection == '1' or selection == '2'):
-            selection = input("Invalid input! Input must be '1' or '2'. "
-                              "Try again: ")
+        print(" ( 1 ) English to French")
+        print(" ( 2 ) French to English")
+        selection = 0
+        while not (selection == 1 or selection == 2):
+            try:
+                selection = int(input("Select an option: "))
+            except ValueError:
+                print("\n<Error> Invalid input! Input must be a number.\n")
+            else:
+                if not (selection == 1 or selection == 2):
+                    print("\n<Error> Invalid input! Must be 1 or 2.\n")
         return "etf.csv" if selection == 1 else "fte.csv"
 
     # Requests the text the user wants to translate (i.e. the source text).
     def get_source_text(self):
-        return input("What would you like to translate? ")
+        source = ""
+        while len(source) == 0:
+            source = input("What would you like to translate? ")
+        return source
 
     # Uses the Translator object to translate the source text
     # and displays the translated text to the user.
@@ -69,14 +76,16 @@ class Translator:
     def translate(self):
         out = ""
         capitalize_first = self.source[0] == self.source[0].upper()
-        last_char = re.sub("[a-zA-Z]", "", self.source[len(self.source)-1])
+        last_chars = re.sub("[a-zA-Z]", "",
+                            self.source.split(" ")[
+                                len(self.source.split(" "))-1])
         for word in self.source.split(" "):
             if len(out) > 0:
                 out += " "
             out += self.__lookup(word)
         if capitalize_first:
             out = out.capitalize()
-        out += last_char
+        out += last_chars
         print(" >> {}".format(out))
 
     # Accepts a word as parameter, looks up the word in the
@@ -109,13 +118,13 @@ def main():
     greeting()
     flag = True
     while flag:
+        ui = UserInterface()
         try:
-            ui = UserInterface()
             ui.run_program()
-            flag = True if input("Would you like to translate something else? "
-                                 "(y/n) ").lower() == "y" else False
         except FileNotFoundError:
-            print("Error: corpus file could not be found.")
+            print("\n<Error> Corpus file could not be found.\n")
+        flag = True if input("Would you like to translate something else? "
+                             "(y/n) ").lower().startswith("y") else False
 
 
 main()

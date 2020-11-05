@@ -1,0 +1,40 @@
+class UserInterface:
+    def __init__(self):
+        # initialize variables
+
+    def run_program(self):
+        # get appropriate user information, create translator instance, and do translation
+
+    def get_corpus_filename(self):
+        # get translation selection from user and return appropriate file name
+
+    def get_source_text(self):
+        # return message to be translated from user
+
+    def translate(self):
+        # read corpus, then translate using the translator
+
+
+class Translator:
+    def __init__(self, file: str, source: str):
+        # initialize variables
+
+    def read_corpus(self):
+        # Read corpus file to dictionary
+
+    def translate(self):
+        # translate each word in message, capitalize first letter and add trailing punctuation if necessary, then print
+
+    def __lookup(self, word: str):
+        # lookup cleaned word in dictionary and return result or source word if not found
+
+
+def greeting():
+    # display a greeting and a brief explanation of what the program does.
+
+
+def main():
+    # main program control and loop
+
+
+main()
