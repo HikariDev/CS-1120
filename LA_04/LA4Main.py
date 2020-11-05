@@ -1,32 +1,39 @@
 # Name: Andrew Kroll
 # Date: 2020-10-30
 # Course-Section/LA#: CS1120-951 LA4
-# Description: TODO: LATER
+# Description: Translate from English to French and French to English using
+# parallel corpus
 import re
 
 
 class UserInterface:
     def __init__(self):
+        """
+        Initializes file, translator, and text variables.
+        """
         self.file = ""
         self.translator = None
         self.text = ""
 
-    # Calls the necessary methods to: display a greeting, ask the user what
-    # s/he wants to do; update the
-    # corpus file name and the text to be translated based on the user’s input,
-    # uses these to initialize
-    # a Translator object, and loops until the user no longer wants
-    # to translate any sentences.
     def run_program(self):
+        """
+        Controls cycle of the program:
+        Retrieves program mode from user.
+        Retrieves text to be translated from user.
+        Executes translation.
+        """
         self.file = self.get_corpus_filename()
         self.text = self.get_source_text()
         self.translator = Translator(self.file, self.text)
         self.translate()
 
-    # Displays the translation options to the user and, after reading
-    # in the option selected by the user, sets
-    # the name of the corpus file. Uses try-except to enforce correct input.
     def get_corpus_filename(self):
+        """
+        Prompts the user to enter which translation mode they would like to
+        use.
+
+        :return: The file name for the appropriate corpus file.
+        """
         print("What would you like to translate?:")
         print(" ( 1 ) English to French")
         print(" ( 2 ) French to English")
@@ -41,39 +48,52 @@ class UserInterface:
                     print("\n<Error> Invalid input! Must be 1 or 2.\n")
         return "etf.csv" if selection == 1 else "fte.csv"
 
-    # Requests the text the user wants to translate (i.e. the source text).
     def get_source_text(self):
+        """
+        Prompts the user to enter the message they would like to translate.
+
+        :return: The message to be translated.
+        """
         source = ""
         while len(source) == 0:
             source = input("What would you like to translate? ")
         return source
 
-    # Uses the Translator object to translate the source text
-    # and displays the translated text to the user.
     def translate(self):
+        """
+        Reads corpus file and executes translation in the Translator object.
+        """
         self.translator.read_corpus()
         self.translator.translate()
 
 
 class Translator:
     def __init__(self, file: str, source: str):
+        """
+        Initializes the file and source variables from arguments.
+        Initializes an empty dict variable.
+
+        :param file: The name of the corpus file.
+        :param source: The source text to be translated.
+        """
         self.file = file
         self.source = source
         self.dict = {}
-        pass
 
-    # Reads in the data from the input file and stores the data in a two
-    # dimensional list for easy retrieval during the translation process.
     def read_corpus(self):
+        """
+        Reads the corpus file and enters it into the dict variable.
+        """
         with open(self.file, 'r') as file:
             for line in file:
                 line = line.strip()
                 if "," in line:
                     self.dict[line.split(",")[0]] = line.split(",")[1]
 
-    # Calls the necessary methods to perform the translation and
-    # returns the translated text.
     def translate(self):
+        """
+        Translates then displays the source message.
+        """
         out = ""
         capitalize_first = self.source[0] == self.source[0].upper()
         last_chars = re.sub("[a-zA-Z]", "",
@@ -88,33 +108,37 @@ class Translator:
         out += last_chars
         print(" >> {}".format(out))
 
-    # Accepts a word as parameter, looks up the word in the
-    # appropriate corpus, and returns the corresponding
-    # translation. If the word is not found in the
-    # corpus, it returns the word received as parameter.
     def __lookup(self, word: str):
+        """
+        Looks up a word in the dict, then returns the translated word or source
+        word if no translation is present.
+
+        :param word: The word to be translated.
+
+        :return: The translated word, or source word if no translation is
+        present.
+        """
         temp = re.sub(r"[^a-zA-Z]", "", word).lower()
         if temp in self.dict:
             return self.dict[temp]
         return temp
 
 
-# A method to display a greeting to the user should be included in your
-# application:
-# Displays a greeting to the user and indicates briefly what
-# the program does.
 def greeting():
+    """
+    Displays a greeting for the user.
+    """
     print("Welcome to the Translator! Bienvenue!!")
     print("You can translate sentences from English to French and vice "
           "versa!")
     pass
 
 
-# Your project should also have a main method:
-# Creates an instance of the UserInterface class,
-# and uses that instance to run the program.
-# You should handle the FileNotFoundError in main.
 def main():
+    """
+    Main program control. Loops translation until the user no longer wishes
+    to translate anything else.
+    """
     greeting()
     flag = True
     while flag:
