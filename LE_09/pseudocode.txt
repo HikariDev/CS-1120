@@ -1,0 +1,41 @@
+# Name: Andrew Kroll
+# Date: 2020-11-06
+# Course-Section/LE#: CS1120-951 LE9
+# Description: magic_8_ball: Displays one of 12 random messages in response
+#   to a question.
+# prime_number_generator: Generates and displays a list of all prime numbers
+#   less than or equal to the number the user enters.
+
+import random
+
+
+def magic_8_ball():
+    responses = []
+    open '8_ball_responses.txt' and read each line into responses
+    run = True
+    while run:
+        ask the user for a question
+        display a random response from responses
+        update run depending on if the user wants to play again or not
+
+
+def prime_number_generator():
+    num = 0
+    while num <= 1:
+        num = a number from the user
+        if number isn't an integer, catch exception and warn user, set num to 0
+        if number is less than or equal to 1, warn user
+    nums = []
+    add all numbers from 2-num to nums
+    for num in nums:
+        print if is_prime(num) returns True
+
+
+def is_prime(num):
+    for all numbers between 2-num:
+        if num is divisible by number evenly, return False
+    return True
+
+
+magic_8_ball()
+prime_number_generator()
