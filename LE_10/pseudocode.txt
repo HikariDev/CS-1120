@@ -1,0 +1,40 @@
+# Name: Andrew Kroll
+# Date: 2020-11-13
+# Course-Section/LE#: CS1120-951 LE10
+# Description: Postfix Expression Evaluator
+
+
+def evaluate(exp):
+    create an empty stack (list)
+    split the expression into parts by ','
+    for each part in expression:
+        if part is +:
+            b = pop from stack
+            a = pop from stack
+            push a + b to stack
+        else if part is -:
+            b = pop from stack
+            a = pop from stack
+            push a - b to stack
+        else if part is *:
+            b = pop from stack
+            a = pop from stack
+            push a * b to stack
+        else if part is /:
+            b = pop from stack
+            a = pop from stack
+            push a / b to stack
+        else:
+            convert to int and push to stack
+    return remaining value in stack
+
+
+def main():
+    while True:
+        request expression from user
+        evaluate expression and display result
+        ask if the user would like to evaluate again, if not:
+            break loop
+
+
+main()
