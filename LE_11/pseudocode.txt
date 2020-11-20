@@ -1,0 +1,68 @@
+# Name: Andrew Kroll
+# Date: 2020-11-20
+# Course-Section/LE#: CS1120-951 LE11
+# Description: Stacks and queues
+
+
+class Stack:
+    def __init__(self):
+        define empty list as stack
+
+    def push(self, item):
+        add item to stack
+
+    def pop(self):
+        if empty, return None
+        else:
+            item = last item in list
+            delete last item from list
+            return item
+
+    def is_empty(self):
+        return if the size of the stack is 0
+
+    def display(self):
+        print each item in the stack
+
+    def insert_at_bottom(self, item):
+        insert item at index 0
+
+    def reverse_stack(self, stack):
+        if stack isn't empty:
+            item = pop item from stack
+            recursively call reverse_stack(stack)
+            insert item at bottom of stack
+
+
+class Queue:
+    def __init__(self):
+        define stack1 and stack2 as empty stacks
+
+    def enqueue(self, item):
+        push item to stack 1
+
+    def dequeue(self):
+        while stack1 isn't empty
+            pop item from stack1 and push to stack2
+        if stack2 is empty
+            print the queue is empty
+            return None
+        pop item from stack2 and return
+
+
+def main():
+
+    # Stack Section #
+    create an instance of Stack()
+    add data to stack
+    display stack
+    reverse stack
+    display stack again
+
+    # Queue Section #
+    create an instance of Queue()
+    add data to queue
+    display items in the queue by popping them with dequeue
+
+
+main()
