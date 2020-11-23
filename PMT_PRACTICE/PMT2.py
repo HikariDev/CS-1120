@@ -1,31 +1,71 @@
 class Ticket:
-    def __init__(self):
-        pass
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
 
     def get_name(self):
-        pass
+        return self.name
 
     def get_grade(self):
-        pass
+        return self.grade
 
     def get_cost_of_ticket(self):
-        pass
+        return 0
+
+
+class Exclusive(Ticket):
+    def __init__(self, name, grade):
+        super().__init__(name, grade)
+
+    def get_cost_of_ticket(self):
+        if self.get_grade() == 'f':
+            return 10000 + 3000
+        elif self.get_grade() == 'c':
+            return 10000 + 2000
+        return 10000
+
+
+class PremiumPlus(Ticket):
+    def __init__(self, name, grade):
+        super().__init__(name, grade)
+
+    def get_cost_of_ticket(self):
+        if self.get_grade() == 'f':
+            return 6000 + 3500
+        elif self.get_grade() == 'c':
+            return 6000 + 2500
+        return 6000
+
+
+class EconomyComfort(Ticket):
+    def __init__(self, name, grade, passengers):
+        super().__init__(name, grade)
+        self.passengers = passengers
+
+    def get_cost_of_ticket(self):
+        return 1200 * self.passengers
+
 
 class Customer:
-    def __init__(self):
-        pass
+    def __init__(self, name):
+        self.name = name
+        self.tickets = []
 
     def get_name(self):
-        pass
+        return self.name
 
     def get_tickets(self):
-        pass
+        return self.tickets
 
-    def add_ticket(self):
-        pass
+    def add_ticket(self, ticket):
+        self.tickets.append(ticket)
 
     def get_total_cost_of_tickets(self):
-        pass
+        cost = 0
+        for ticket in self.get_tickets():
+            cost += ticket.get_cost_of_ticket()
+        return cost
+
 
 def main():
     jeweler = Customer("Maggie May")
