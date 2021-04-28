@@ -21,12 +21,14 @@ class ProcessList:
         # computed_numbers variable as a two dimensional array of 0's with rows
         # rows and cols cols
 
+
     def randomly_fill_list(self):  # Fills the random_numbers array with
         # randomly generated numbers between 0 and 15
         for row in range(self.get_rows()):  # Iterate through row values
             for col in range(self.get_cols()):  # Iterate through col values
                 self.set_random_number(row, col, random.randint(0, 15))
                 # Set the cell to a random number between 0 and 15 (inclusive)
+
 
     def compute_list_values(self):  # Fills the computed_numbers array with
         # the sum of all neighboring cells from random_numbers array
@@ -46,6 +48,7 @@ class ProcessList:
                 self.set_computed_number(row, col, neighbor_sum)
                 # Set computed cell value
 
+
     def print_list(self):  # Displays both the random_numbers and
         # computed_numbers arrays with appropriate padding.
         print("Initial list with random numbers:")
@@ -63,23 +66,29 @@ class ProcessList:
                 # padding
             print()  # Ends the current row's line
 
+
     def get_rows(self) -> int:  # Gets the set number of rows
         return self.rows
+
 
     def get_cols(self) -> int:  # Gets the set number of cols
         return self.cols
 
+    
     def get_random_number(self, row: int, col: int) -> int:
         # Gets the targeted cell value from random_numbers array
         return self.random_numbers[row][col]
+
 
     def set_random_number(self, row: int, col: int, val: int):
         # Sets the targeted cell value in random_numbers array
         self.random_numbers[row][col] = val
 
+
     def get_computed_number(self, row: int, col: int) -> int:
         # Gets the targeted cell value from computed_numbers array
         return self.computed_numbers[row][col]
+
 
     def set_computed_number(self, row: int, col: int, val: int):
         # Sets the targeted cell value in computed_numbers array
