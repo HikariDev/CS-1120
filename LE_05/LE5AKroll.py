@@ -26,7 +26,7 @@ def recursive_power(num: int, power: int):
     if power <= 0:
         return 1
     return num * recursive_power(num, power-1)
-
+ 
 
 def palindrome(txt: str):
     txt = txt.lower()
